@@ -1,3 +1,5 @@
+import styles from "./Table.module.css";
+
 const formatter = new Intl.NumberFormat("en-IN", {
   style: "currency",
   currency: "INR",
@@ -7,7 +9,7 @@ const formatter = new Intl.NumberFormat("en-IN", {
 
 const Table = (props) => {
   return (
-    <table className="result">
+    <table className={styles.result}>
       <thead>
         <tr>
           <th>Year</th>
@@ -32,8 +34,8 @@ const Table = (props) => {
             </td>
             <td>
               {formatter.format(
-                props.initialInvestment +
-                  yearData.yearlyContribution * yearData.year
+                parseFloat(props.initialInvestment) +
+                  parseFloat(yearData.yearlyContribution * yearData.year)
               )}
             </td>
           </tr>

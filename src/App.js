@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Header from "./Components/Header";
-import InvestmentForm from "./Components/InvestmentForm";
-import Table from "./Components/Table";
+import Header from "./Components/Header/Header";
+import InvestmentForm from "./Components/Form/InvestmentForm";
+import Table from "./Components/Table/Table";
 
 function App() {
   const [results, setResults] = useState(null);
@@ -43,7 +43,7 @@ function App() {
         onSaveInvestment={CalculationHandler}
         onInitialSavings={initialSavings}
       />
-      {!results && <p>No User Input Yet.</p>}
+      {!results && <p style={{ textAlign: "center" }}>No User Input Yet.</p>}
       {results && (
         <Table
           data={results}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import styles from "./InvestmentForm.module.css";
 
 const InvestmentForm = (props) => {
-  const [currentSavings, setCurrentSavings] = useState("");
-  const [yearlySavings, setYearlySavings] = useState("");
-  const [expectedInterest, setExpectedInterest] = useState("");
-  const [investmentDuration, setInvestmentDuration] = useState("");
+  const [currentSavings, setCurrentSavings] = useState();
+  const [yearlySavings, setYearlySavings] = useState();
+  const [expectedInterest, setExpectedInterest] = useState();
+  const [investmentDuration, setInvestmentDuration] = useState();
 
   const currentSavingsHandler = (Event) => {
     setCurrentSavings(Event.target.value);
@@ -48,8 +49,8 @@ const InvestmentForm = (props) => {
   };
 
   return (
-    <form className="form" onSubmit={submitHandler}>
-      <div className="input-group">
+    <form className={styles.form} onSubmit={submitHandler}>
+      <div className={styles["input-group"]}>
         <p>
           <label htmlFor="current-savings">Current Savings ($)</label>
           <input
@@ -69,7 +70,7 @@ const InvestmentForm = (props) => {
           />
         </p>
       </div>
-      <div className="input-group">
+      <div className={styles["input-group"]}>
         <p>
           <label htmlFor="expected-return">
             Expected Interest (%, per year)
@@ -91,11 +92,15 @@ const InvestmentForm = (props) => {
           />
         </p>
       </div>
-      <p className="actions">
-        <button type="reset" className="buttonAlt" onClick={resetHandler}>
+      <p className={styles.actions}>
+        <button
+          type="reset"
+          className={styles.buttonAlt}
+          onClick={resetHandler}
+        >
           Reset
         </button>
-        <button type="submit" className="button">
+        <button type="submit" className={styles.button}>
           Calculate
         </button>
       </p>
